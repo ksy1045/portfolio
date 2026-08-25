@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MY PORTFOLIO | [이름]</title>
+
+    <style>
+
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', 'Noto Sans KR', sans-serif;
+            background: #08090d;
+            color: #f5f5f5;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* =========================
+           BACKGROUND
+        ========================= */
+
+        body::before {
+            content: "";
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            background: #3155ff;
+            filter: blur(180px);
+            opacity: 0.12;
+            top: -200px;
+            right: -200px;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            background: #8b5cf6;
+            filter: blur(180px);
+            opacity: 0.08;
+            bottom: -200px;
+            left: -200px;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 75px;
+            z-index: 1000;
+
+            background: rgba(8, 9, 13, 0.72);
+            backdrop-filter: blur(18px);
+
+            border-bottom: 1px solid rgba(255,255,255,0.07);
+        }
+
+        nav {
+            width: min(1200px, 90%);
+            height: 100%;
+            margin: auto;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 18px;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        .logo span {
+            color: #6d8cff;
+        }
+
+        .menu {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .menu a {
+            color: #999;
+            font-size: 13px;
+            transition: 0.25s;
+        }
+
+        .menu a:hover {
+            color: white;
+        }
+
+        /* =========================
+           COMMON
+        ========================= */
+
+        .container {
+            width: min(1100px, 90%);
+            margin: auto;
+        }
+
+        section {
+            padding: 130px 0;
+        }
+
+        .section-label {
+            color: #6d8cff;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: clamp(32px, 5vw, 48px);
+            letter-spacing: -2px;
+            margin-bottom: 55px;
+        }
+
+        .section-title span {
+            color: #6d8cff;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+
+            padding-top: 100px;
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+
+            padding: 8px 13px;
+
+            border: 1px solid rgba(109,140,255,0.25);
+            border-radius: 30px;
+
+            color: #9eafff;
+            background: rgba(109,140,255,0.07);
+
+            font-size: 12px;
+            margin-bottom: 25px;
+        }
+
+        .dot {
+            width: 6px;
+            height: 6px;
+            background: #6d8cff;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #6d8cff;
+        }
+
+        .hero h1 {
+            font-size: clamp(55px, 9vw, 100px);
+            line-height: 0.95;
+            letter-spacing: -6px;
+            margin-bottom: 35px;
+        }
+
+        .hero h1 .gradient {
+            background: linear-gradient(
+                90deg,
+                #ffffff,
+                #718cff,
+                #a78bfa
+            );
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-description {
+            max-width: 650px;
+
+            color: #9a9ba2;
+            font-size: 17px;
+            line-height: 1.8;
+
+            margin-bottom: 35px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn {
+            padding: 13px 20px;
+            border-radius: 8px;
+
+            font-size: 13px;
+            font-weight: 600;
+
+            transition: 0.25s;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #08090d;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255,255,255,0.15);
+        }
+
+        .btn-outline {
+            border: 1px solid #292c35;
+            color: #aaa;
+        }
+
+        .btn-outline:hover {
+            border-color: #555;
+            color: white;
+        }
+
+        /* scroll */
+
+        .scroll {
+            position: absolute;
+            bottom: 35px;
+
+            color: #555;
+            font-size: 11px;
+            letter-spacing: 2px;
+        }
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about-layout {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .profile-card {
+            position: relative;
+
+            min-height: 350px;
+
+            border: 1px solid #22252d;
+            border-radius: 20px;
+
+            background: linear-gradient(
+                145deg,
+                #11131a,
+                #0b0c11
+            );
+
+            padding: 35px;
+
+            overflow: hidden;
+        }
+
+        .profile-card::before {
+            content: "";
+
+            position: absolute;
+            width: 180px;
+            height: 180px;
+
+            background: #3155ff;
+            filter: blur(100px);
+
+            right: -70px;
+            top: -70px;
+
+            opacity: 0.3;
+        }
+
+        .profile-icon {
+            width: 85px;
+            height: 85px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: linear-gradient(
+                135deg,
+                #3155ff,
+                #8b5cf6
+            );
+
+            font-size: 35px;
+            margin-bottom: 25px;
+        }
+
+        .profile-card h3 {
+            font-size: 25px;
+            margin-bottom: 8px;
+        }
+
+        .profile-card p {
+            color: #777;
+            font-size: 13px;
+        }
+
+        .about-text {
+            color: #a4a5ab;
+            line-height: 2;
+            font-size: 15px;
+        }
+
+        .about-text strong {
+            color: white;
+        }
+
+        /* =========================
+           INFO
+        ========================= */
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+
+        .info {
+            padding: 22px;
+
+            background: #101116;
+            border: 1px solid #20222a;
+            border-radius: 12px;
+        }
+
+        .info small {
+            display: block;
+            color: #666;
+            font-size: 11px;
+            margin-bottom: 7px;
+        }
+
+        .info strong {
+            font-size: 14px;
+        }
+
+        /* =========================
+           INTEREST
+        ========================= */
+
+        .interest-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .interest {
+            padding: 35px;
+
+            background: #101116;
+            border: 1px solid #20222a;
+            border-radius: 15px;
+
+            transition: 0.3s;
+        }
+
+        .interest:hover {
+            transform: translateY(-8px);
+            border-color: #3d4e9c;
+            background: #121521;
+        }
+
+        .interest-number {
+            color: #555;
+            font-size: 12px;
+            margin-bottom: 35px;
+        }
+
+        .interest h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+
+        .interest p {
+            color: #777;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        /* =========================
+           SKILLS
+        ========================= */
+
+        .skills {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .skill {
+            padding: 25px;
+
+            background: #101116;
+            border: 1px solid #20222a;
+            border-radius: 12px;
+        }
+
+        .skill-top {
+            display: flex;
+            justify-content: space-between;
+
+            margin-bottom: 13px;
+
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .skill-top span:last-child {
+            color: #6d8cff;
+        }
+
+        .bar {
+            height: 4px;
+            background: #242630;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 100%;
+
+            background: linear-gradient(
+                90deg,
+                #3155ff,
+                #8b5cf6
+            );
+        }
+
+        /* =========================
+           CAREER
+        ========================= */
+
+        .timeline {
+            border-left: 1px solid #292c35;
+            margin-left: 8px;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 35px;
+            margin-bottom: 50px;
+        }
+
+        .timeline-item::before {
+            content: "";
+
+            position: absolute;
+
+            width: 9px;
+            height: 9px;
+
+            border-radius: 50%;
+
+            background: #6d8cff;
+
+            left: -5px;
+            top: 7px;
+
+            box-shadow: 0 0 15px #6d8cff;
+        }
+
+        .timeline-date {
+            color: #6d8cff;
+            font-size: 12px;
+            margin-bottom: 7px;
+        }
+
+        .timeline-item h3 {
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        .timeline-item p {
+            color: #777;
+            font-size: 14px;
+            max-width: 700px;
+        }
+
+        /* =========================
+           PROJECT
+        ========================= */
+
+        .project {
+            padding: 35px;
+
+            border-radius: 18px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(49,85,255,0.12),
+                    rgba(139,92,246,0.04)
+                );
+
+            border: 1px solid #292e42;
+
+            margin-bottom: 18px;
+
+            transition: 0.3s;
+        }
+
+        .project:hover {
+            transform: translateX(8px);
+            border-color: #566bd0;
+        }
+
+        .project-tag {
+            color: #7f96ff;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        .project h3 {
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+
+        .project p {
+            color: #888;
+            max-width: 700px;
+            font-size: 14px;
+        }
+
+        /* =========================
+           GOAL
+        ========================= */
+
+        .goal {
+            text-align: center;
+            padding: 100px 30px;
+
+            border-radius: 25px;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    rgba(49,85,255,0.18),
+                    transparent 60%
+                );
+
+            border: 1px solid #242a42;
+        }
+
+        .goal h2 {
+            font-size: clamp(35px, 6vw, 60px);
+            letter-spacing: -3px;
+            margin-bottom: 20px;
+        }
+
+        .goal p {
+            color: #888;
+            max-width: 600px;
+            margin: auto;
+            line-height: 1.9;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            padding: 40px 0;
+
+            border-top: 1px solid #1b1d23;
+
+            color: #555;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 750px) {
+
+            .menu {
+                display: none;
+            }
+
+            .hero h1 {
+                letter-spacing: -4px;
+            }
+
+            .about-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .interest-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 90px 0;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+    <nav>
+
+        <div class="logo">
+            [이름]<span>.</span>
+        </div>
+
+        <ul class="menu">
+            <li><a href="#about">ABOUT</a></li>
+            <li><a href="#interest">INTEREST</a></li>
+            <li><a href="#career">CAREER</a></li>
+            <li><a href="#skill">SKILLS</a></li>
+            <li><a href="#project">PROJECT</a></li>
+        </ul>
+
+    </nav>
+
+</header>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+    <div class="container">
+
+        <div class="hero-content">
+
+            <div class="hero-tag">
+                <div class="dot"></div>
+                STUDENT PORTFOLIO
+            </div>
+
+            <h1>
+                Hello,<br>
+                I'm <span class="gradient">[이름].</span>
+            </h1>
+
+            <p class="hero-description">
+                새로운 기술을 배우고 직접 만들어보는 것을 좋아하는 학생입니다.
+                프로그래밍과 IT 기술에 관심을 가지고 다양한 프로젝트와
+                진로 활동을 통해 성장하고 있습니다.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#about" class="btn btn-primary">
+                    ABOUT ME →
+                </a>
+
+                <a href="#project" class="btn btn-outline">
+                    PROJECTS
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="scroll">
+        SCROLL TO EXPLORE ↓
+    </div>
+
+</section>
+
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section id="about">
+
+    <div class="container">
+
+        <div class="section-label">
+            01 — ABOUT
+        </div>
+
+        <h2 class="section-title">
+            About <span>Me</span>
+        </h2>
+
+
+        <div class="about-layout">
+
+
+            <div class="profile-card">
+
+                <div class="profile-icon">
+                    &lt;/&gt;
+                </div>
+
+                <h3>[이름]</h3>
+
+                <p>
+                    Student · Developer · Explorer
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <p class="about-text">
+
+                    안녕하세요. 저는 <strong>[학교명]</strong>에 재학 중인
+                    <strong>[이름]</strong>입니다.
+                    <br><br>
+
+                    평소 컴퓨터와 새로운 기술에 관심이 많으며,
+                    단순히 사용하는 것보다 <strong>"어떻게 만들어지는가"</strong>를
+                    알아가는 것을 좋아합니다.
+                    <br><br>
+
+                    특히 프로그래밍을 공부하면서 문제를 직접 분석하고
+                    해결하는 과정에 흥미를 느끼고 있습니다.
+                    앞으로도 다양한 프로젝트와 경험을 통해
+                    제가 관심 있는 분야의 실력을 쌓아가고 싶습니다.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     PERSONAL INFO
+========================= -->
+
+<section>
+
+    <div class="container">
+
+        <div class="section-label">
+            02 — PROFILE
+        </div>
+
+        <h2 class="section-title">
+            Personal <span>Info</span>
+        </h2>
+
+
+        <div class="info-grid">
+
+            <div class="info">
+                <small>NAME</small>
+                <strong>[이름]</strong>
+            </div>
+
+            <div class="info">
+                <small>SCHOOL</small>
+                <strong>[학교명]</strong>
+            </div>
+
+            <div class="info">
+                <small>GRADE</small>
+                <strong>[학년 / 반]</strong>
+            </div>
+
+            <div class="info">
+                <small>CAREER</small>
+                <strong>[희망 진로]</strong>
+            </div>
+
+            <div class="info">
+                <small>EMAIL</small>
+                <strong>[이메일]</strong>
+            </div>
+
+            <div class="info">
+                <small>MBTI</small>
+                <strong>[MBTI]</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     INTEREST
+========================= -->
+
+<section id="interest">
+
+    <div class="container">
+
+        <div class="section-label">
+            03 — INTEREST
+        </div>
+
+        <h2 class="section-title">
+            What I <span>Like</span>
+        </h2>
+
+
+        <div class="interest-grid">
+
+
+            <div class="interest">
+
+                <div class="interest-number">
+                    01
+                </div>
+
+                <h3>Programming</h3>
+
+                <p>
+                    C언어를 비롯한 프로그래밍에 관심이 있습니다.
+                    직접 코드를 작성하고 프로그램을 만들어보는
+                    과정에서 흥미를 느낍니다.
+                </p>
+
+            </div>
+
+
+            <div class="interest">
+
+                <div class="interest-number">
+                    02
+                </div>
+
+                <h3>IT & Technology</h3>
+
+                <p>
+                    새로운 IT 기술이 어떻게 작동하고
+                    실제 생활에서 어떻게 활용되는지 알아보는 것을
+                    좋아합니다.
+                </p>
+
+            </div>
+
+
+            <div class="interest">
+
+                <div class="interest-number">
+                    03
+                </div>
+
+                <h3>Science</h3>
+
+                <p>
+                    과학적인 원리를 이해하고 이를 프로그램이나
+                    프로젝트로 구현하는 활동에 관심이 있습니다.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CAREER
+========================= -->
+
+<section id="career">
+
+    <div class="container">
+
+        <div class="section-label">
+            04 — CAREER
+        </div>
+
+        <h2 class="section-title">
+            Career <span>Journey</span>
+        </h2>
+
+
+        <div class="timeline">
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-date">
+                    2026
+                </div>
+
+                <h3>C언어 프로그래밍 프로젝트</h3>
+
+                <p>
+                    C언어를 활용하여 물리 현상을 프로그램으로
+                    구현하는 프로젝트를 진행했습니다.
+                    배열과 수학적 계산을 활용하여 실제 현상을
+                    시뮬레이션하는 과정을 경험했습니다.
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-date">
+                    2026
+                </div>
+
+                <h3>[진로 활동 제목]</h3>
+
+                <p>
+                    [활동 내용과 활동을 통해 배운 점을 작성하세요.]
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-date">
+                    2025
+                </div>
+
+                <h3>[진로 활동 제목]</h3>
+
+                <p>
+                    [활동 내용과 느낀 점을 작성하세요.]
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     SKILLS
+========================= -->
+
+<section id="skill">
+
+    <div class="container">
+
+        <div class="section-label">
+            05 — SKILLS
+        </div>
+
+        <h2 class="section-title">
+            My <span>Skills</span>
+        </h2>
+
+
+        <div class="skills">
+
+
+            <div class="skill">
+
+                <div class="skill-top">
+                    <span>C Programming</span>
+                    <span>75%</span>
+                </div>
+
+                <div class="bar">
+                    <div class="progress" style="width:75%"></div>
+                </div>
+
+            </div>
+
+
+            <div class="skill">
+
+                <div class="skill-top">
+                    <span>Problem Solving</span>
+                    <span>80%</span>
+                </div>
+
+                <div class="bar">
+                    <div class="progress" style="width:80%"></div>
+                </div>
+
+            </div>
+
+
+            <div class="skill">
+
+                <div class="skill-top">
+                    <span>Logical Thinking</span>
+                    <span>80%</span>
+                </div>
+
+                <div class="bar">
+                    <div class="progress" style="width:80%"></div>
+                </div>
+
+            </div>
+
+
+            <div class="skill">
+
+                <div class="skill-top">
+                    <span>Communication</span>
+                    <span>85%</span>
+                </div>
+
+                <div class="bar">
+                    <div class="progress" style="width:85%"></div>
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     PROJECT
+========================= -->
+
+<section id="project">
+
+    <div class="container">
+
+        <div class="section-label">
+            06 — PROJECT
+        </div>
+
+        <h2 class="section-title">
+            Selected <span>Projects</span>
+        </h2>
+
+
+        <div class="project">
+
+            <div class="project-tag">
+                C LANGUAGE · PHYSICS
+            </div>
+
+            <h3>
+                01. 공 튀김 시뮬레이터
+            </h3>
+
+            <p>
+                1차원 배열을 이용하여 시간에 따른 공의 위치를 기록하고
+                자유낙하와 반발 계수를 적용하여 공의 움직임을
+                시뮬레이션하는 프로젝트입니다.
+            </p>
+
+        </div>
+
+
+        <div class="project">
+
+            <div class="project-tag">
+                C LANGUAGE · MATHEMATICS
+            </div>
+
+            <h3>
+                02. 포물선 운동 시뮬레이터
+            </h3>
+
+            <p>
+                초기 속도와 발사 각도를 입력하여 포물선 운동을 계산하고
+                목표물에 도달하는 과정을 시뮬레이션하는 프로젝트입니다.
+            </p>
+
+        </div>
+
+
+        <div class="project">
+
+            <div class="project-tag">
+                WEB · HTML · CSS
+            </div>
+
+            <h3>
+                03. Personal Portfolio
+            </h3>
+
+            <p>
+                HTML과 CSS를 활용하여 자신의 인적사항,
+                관심분야, 진로활동, 역량과 프로젝트를 소개하는
+                개인 포트폴리오 웹사이트를 제작했습니다.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FUTURE GOAL
+========================= -->
+
+<section>
+
+    <div class="container">
+
+        <div class="goal">
+
+            <div class="section-label">
+                07 — FUTURE
+            </div>
+
+            <h2>
+                Keep Learning.<br>
+                Keep Building.
+            </h2>
+
+            <p>
+                앞으로도 다양한 기술을 배우고 직접 프로젝트를 만들어보며
+                경험을 쌓고 싶습니다. 작은 아이디어라도 직접 구현해보면서
+                문제를 해결하는 능력을 키우고,
+                제가 원하는 진로에 한 걸음씩 가까워지는 것이 목표입니다.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <div class="container">
+
+        © 2026 [이름] — Student Portfolio
+
+    </div>
+
+</footer>
+
+
+</body>
+</html>
